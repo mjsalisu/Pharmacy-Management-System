@@ -1,5 +1,15 @@
 <?php
-error_reporting (1);
-$con=mysql_pconnect('localhost','root','')or die("cannot connect to server");
-mysql_select_db('pms')or die("cannot connect to database");
+    $localhost = "localhost";
+    $username ="pms";
+    $password = "pms";
+    $db = "pms";
+
+    // $con = mysqli_connect($localhost, $username, $password, $db);
+    $con = mysqli_connect($localhost, '', '', $db);
+    
+    if (mysqli_connect_errno()) {
+        echo "Something went wrong, chech Database: ". mysqli_connect_error();
+    } else {
+        //echo "Database connected successfully";
+    }
 ?>

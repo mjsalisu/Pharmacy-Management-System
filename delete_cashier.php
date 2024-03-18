@@ -10,8 +10,8 @@ exit();
 }
 $id=$_GET[cashier_id];
 $sql="delete from cashier where cashier_id='$id'";
-mysql_query($sql);
-//$rows=mysql_fetch_assoc($result);
+mysqli_query($con, $sql);
+//$rows=mysqli_fetch_assoc($result);
 header("location:admin_cashier.php");
 ?>
 

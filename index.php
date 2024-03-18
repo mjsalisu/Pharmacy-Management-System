@@ -6,8 +6,8 @@ $password=$_POST['password'];
 $position=$_POST['position'];
 switch($position){
 case 'Admin':
-$result=mysql_query("SELECT admin_id, username FROM admin WHERE username='$username' AND password='$password'");
-$row=mysql_fetch_array($result);
+$result=mysqli_query($con, "SELECT admin_id, username FROM admin WHERE username='$username' AND password='$password'");
+$row=mysqli_fetch_array($result);
 if($row>0){
 session_start();
 $_SESSION['admin_id']=$row[0];
@@ -18,8 +18,8 @@ $message="<font color=red>Invalid login Try Again</font>";
 }
 break;
 case 'Pharmacist':
-$result=mysql_query("SELECT pharmacist_id, first_name,last_name,staff_id,username FROM pharmacist WHERE username='$username' AND password='$password'");
-$row=mysql_fetch_array($result);
+$result=mysqli_query($con, "SELECT pharmacist_id, first_name,last_name,staff_id,username FROM pharmacist WHERE username='$username' AND password='$password'");
+$row=mysqli_fetch_array($result);
 if($row>0){
 session_start();
 $_SESSION['pharmacist_id']=$row[0];
@@ -33,8 +33,8 @@ $message="<font color=red>Invalid login Try Again</font>";
 }
 break;
 case 'Cashier':
-$result=mysql_query("SELECT cashier_id, first_name,last_name,staff_id,username FROM cashier WHERE username='$username' AND password='$password'");
-$row=mysql_fetch_array($result);
+$result=mysqli_query($con, "SELECT cashier_id, first_name,last_name,staff_id,username FROM cashier WHERE username='$username' AND password='$password'");
+$row=mysqli_fetch_array($result);
 if($row>0){
 session_start();
 $_SESSION['cashier_id']=$row[0];
@@ -48,8 +48,8 @@ $message="<font color=red>Invalid login Try Again</font>";
 }
 break;
 case 'Manager':
-$result=mysql_query("SELECT manager_id, first_name,last_name,staff_id,username FROM manager WHERE username='$username' AND password='$password'");
-$row=mysql_fetch_array($result);
+$result=mysqli_query($con, "SELECT manager_id, first_name,last_name,staff_id,username FROM manager WHERE username='$username' AND password='$password'");
+$row=mysqli_fetch_array($result);
 if($row>0){
 session_start();
 $_SESSION['manager_id']=$row[0];
